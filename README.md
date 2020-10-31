@@ -10,11 +10,17 @@ Esse é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 - [Styled Components](https://styled-components.com/)
 
 ## Como Rodar
-1 - Clone o Projeto
-2 - Dê "[yarn](https://yarnpkg.com/) install" ou "[npm](https://www.npmjs.com/) install"
-3 - Dê "[yarn](https://yarnpkg.com/) start" ou "[npm](https://www.npmjs.com/) run start"
+```bash
+# Clone o Projeto
+$ git clone https://github.com/mymrtt/super-hero
 
+# Instale as dependências
+$ yarn install
 
+# Rode o Projeto
+$ yarn start
+
+```
 
 
 Made with ♥ by Yasmin Miranda
