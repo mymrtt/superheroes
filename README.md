@@ -5,7 +5,7 @@ Esse é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 ## 💻 Tecnologias
 - [React](https://reactjs.org)
 - [Redux](https://redux.js.org/)
-- [Redux-Persis](https://github.com/rt2zz/redux-persist)
+- [Redux-Persist](https://github.com/rt2zz/redux-persist)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 - [Styled Components](https://styled-components.com/)
 
