@@ -1,6 +1,6 @@
 ## 🚀 Projeto
 
-Esse é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API](https://superheroapi.com/) e listar, filtrar, e favoritar super heróis de diferentes universos.  
+Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API](https://superheroapi.com/) e listar, filtrar, e favoritar super heróis de diferentes universos.  
 
 ## 💻 Tecnologias
 - [React](https://reactjs.org)
