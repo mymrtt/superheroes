@@ -8,7 +8,7 @@ Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 - Buscar por um super herói;
 - Mudar o tema da aplicação entre dark e light.
 
-## Tópico Importante
+## ⚡ Tópico Importante ⚡
 Foi necessário a utilização de um proxy e [cors anywhere - heroku](https://cors-anywhere.herokuapp.com) para os requests na API porque, após qualquer request, a API retornava um erro de Cors. Pesquisei bastante sobre, até que cheguei nessa solução.
 
 - O proxy foi implementado no arquivo package.json;
