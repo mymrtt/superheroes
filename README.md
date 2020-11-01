@@ -18,7 +18,7 @@ Foi necessário a utilização de um proxy e [cors anywhere - heroku](https://co
 - [Axios](https://github.com/axios/axios)
 
 ## Backend
-O backend está em um clould Open Source chamado [Back4App](https://www.back4app.com/)
+O backend foi construído através de um clould Open Source chamado [Back4App](https://www.back4app.com/)
 - Nesse cloud estão armanezados os usuários cadastrados na aplicação. 
 
 ## Como Instalar
