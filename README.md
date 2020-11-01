@@ -17,7 +17,9 @@ Foi necessário a utilização de um proxy e [cors anywhere - heroku](https://co
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
 
-## Backend REST em Clould de Forma Open Source Utilizando [Back4App](https://www.back4app.com/)
+## Backend
+O backend está em um clould Open Source chamado [Back4App](https://www.back4app.com/)
+- Nesse cloud estão armanezados os usuários cadastrados na aplicação. 
 
 ## Como Instalar
 ```bash
