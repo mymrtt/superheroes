@@ -33,7 +33,6 @@ O back-end foi construído através de um clould Open Source chamado [Back4App](
 $ git clone https://github.com/mymrtt/super-hero
 
 # 2. Instale as Dependências
-
 Para yarn:
 $ yarn install
 
@@ -47,7 +46,6 @@ $ npm install
 $ cd superheroes
 
 # 2. Rode localmente
-
 Para yarn:
 $ yarn start
 
