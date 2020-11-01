@@ -43,7 +43,7 @@ $ npm install
 ## Como Rodar
 ```bash
 # 1. Entre na pasta
-$ cd superheroes
+$ cd super-hero
 
 # 2. Rode localmente
 Para yarn:
