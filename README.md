@@ -3,7 +3,7 @@
 Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API](https://superheroapi.com/). Nela, você conseguirá...
 - Criar uma conta;
 - Visualizar uma lista de super heróis;
-- Marcar super heróis como favorito;
+- Favoritar super heróis;
 - Visualizar lista de super heróis favoritados;
 - Buscar por um super herói;
 - Mudar o tema da aplicação para dark ou light.
