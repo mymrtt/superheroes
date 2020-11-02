@@ -79,6 +79,7 @@ const ContainerTitle = styled.div`
 
   @media(max-width: 648px) {
     margin-left: 0;
+    height: 10rem;
   }
 `;
 

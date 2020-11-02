@@ -78,6 +78,10 @@ const ContainerChoiceDetails = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @media(max-width: 648px) {
+    margin-bottom: .5rem;
+  }
 `;
 
 const ChoiceDetailsItem = styled.span`
