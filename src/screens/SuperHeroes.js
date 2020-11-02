@@ -242,7 +242,6 @@ class SuperHeroes extends Component {
           superHerosList: heroes,
         })
 
-        // this.props.addHero(heroes);
         this.setState({
           isFetching: false,
         });
@@ -378,7 +377,7 @@ class SuperHeroes extends Component {
     return (
       <Layout>
         <Container>
-        {console.log('superHerosList', this.state.superHerosList)}
+        {/* {console.log('superHerosList', this.state.superHerosList)} */}
           <Wrapper favsMob={listFavorites.length > 0}>
             {isSearch && (
               <ShowButton
