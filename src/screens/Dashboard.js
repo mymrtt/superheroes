@@ -22,7 +22,7 @@ class Dashboard extends Component {
     return (
       <Layout>
         <Container>
-          <p>a</p>
+          <p>Under construction.</p>
         </Container>
       </Layout>
     )
