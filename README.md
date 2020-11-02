@@ -30,7 +30,7 @@ O back-end foi construído através de um clould Open Source chamado [Back4App](
 ## Como Instalar
 ```bash
 # 1. Clone o Projeto
-$ git clone https://github.com/mymrtt/super-hero
+$ git clone https://github.com/mymrtt/superheroes
 
 # 2. Instale as Dependências
 Para yarn:
@@ -43,7 +43,7 @@ $ npm install
 ## Como Rodar
 ```bash
 # 1. Entre na pasta
-$ cd super-hero
+$ cd superheroes
 
 # 2. Rode localmente
 Para yarn:
