@@ -16,7 +16,7 @@ Foi necessário a utilização de um proxy e [cors anywhere - heroku](https://co
 - O proxy foi implementado no arquivo package.json;
 - O cors anywhere, no arquivo apiSuperHero.js (src / services / apiSuperHero.js).
 
-## 💻 Tecnologias, Bibliotecas e Linguagem
+## 💻 Linguagem, Tecnologias e Bibliotecas 
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [React](https://reactjs.org)
 - [Redux](https://redux.js.org/)
