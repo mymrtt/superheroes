@@ -62,7 +62,7 @@ $ npm start
 ```bash
 # 1. Abra o Cypress
 # Para yarn:
-$ yarn  cy:open
+$ yarn cy:open
 
 # Para npm:
 $ npm cy:open
