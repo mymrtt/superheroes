@@ -110,6 +110,11 @@ const ContainerDetails = styled.div`
   background-color: #fff;
   border-radius: 10px;
 
+  @media(max-width: 1024px) {
+    width: 50%;
+    max-width: 60%;
+  }
+
   @media(max-width: 768px) {
     width: 60%;
     max-width: 60%;
@@ -212,6 +217,7 @@ function Card({ hero, selected }){
             src={CloseIcon}
             alt='close'
             onClick={handleOpenPowerstats}
+            data-testid="hero-details-powerstats-button"
           />
           <DetailsTitle>Powerstats</DetailsTitle>
           <ContainerDescription>
@@ -256,6 +262,7 @@ function Card({ hero, selected }){
             src={CloseIcon}
             alt='close'
             onClick={handleOpenBiography}
+            data-testid="hero-details-biography-button"
           />
           <DetailsTitle>Biography</DetailsTitle>
           <ContainerDescription>
@@ -309,6 +316,7 @@ function Card({ hero, selected }){
             src={CloseIcon}
             alt='close'
             onClick={handleOpenAppearance}
+            data-testid="hero-details-appearance-button"
           />
           <DetailsTitle>Appearance</DetailsTitle>
           <ContainerDescription>
@@ -376,16 +384,19 @@ function Card({ hero, selected }){
       <ContainerChoiceDetails>
         <ChoiceDetailsItem
           onClick={handleOpenAppearance}
+          data-testid="hero-details-appearance"
         >
           Appearance
         </ChoiceDetailsItem>
         <ChoiceDetailsItem
           onClick={handleOpenBiography}
+          data-testid="hero-details-biography"
         >
           Biography
         </ChoiceDetailsItem>
         <ChoiceDetailsItem
           onClick={handleOpenPowerstats}
+          data-testid="hero-details-powerstats"
         >
           Powerstats
         </ChoiceDetailsItem>

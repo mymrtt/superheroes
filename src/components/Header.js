@@ -202,7 +202,10 @@ const Header = () => {
           <img src={userIcon} alt="user" />
           <Text username>{username}</Text>
         </ContainerMenuItem>
-        <ContainerMenuItem onClick={handleLogout}>
+        <ContainerMenuItem
+          onClick={handleLogout}
+          data-testid="logout-button"
+        >
           <Text>Sair</Text>
         </ContainerMenuItem>
       </ContainerMenu>
@@ -215,12 +218,14 @@ const Header = () => {
         exact to="/superheroes"
         activeClassName="active"
         lastOne
-        data-testid="header-superheroes"
       >
         Super Heroes
       </Link>
-      <ContainerMenuItem onClick={handleLogout} menu>
-        <Text>Sair</Text>
+      <ContainerMenuItem
+        menu
+        onClick={handleLogout}
+      >
+        <Text>Logout</Text>
       </ContainerMenuItem>
     </ContainerLinks>
   );

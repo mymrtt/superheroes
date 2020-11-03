@@ -416,11 +416,13 @@ class SuperHeroes extends Component {
                   heros={true}
                   search={true}
                   error={searchValueError}
+                  testid="search-input"
                 />
                 <SearchIcon
                   src={searchIcon}
                   alt="search"
                   onClick={this.handleValidateSearchValue}
+                  data-testid="search-button"
                 />
               </ContainerSearch>
               {searchValueError && <ErrorMessage>{searchValueError}</ErrorMessage>}
