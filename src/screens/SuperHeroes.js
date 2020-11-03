@@ -33,12 +33,13 @@ const mapDispatchToProps = (dispatch) => ({
 // Styles
 const Container = styled.div`
   width: 80%;
-  height: 100vh;
+  ${'' /* height: 100vh; */}
   display: flex;
   ${'' /* background-color: #f2f4f7; */}
 
   @media(max-width: 648px) {
     width: 100%;
+    height: -webkit-fill-available;
   } 
 `;
 
@@ -104,6 +105,7 @@ const ContainerSearch = styled.div`
 
   @media(max-width: 648px) {
     width: 100%;
+    min-height: 3rem;
   }
 `;
 
@@ -150,10 +152,14 @@ const ContainerCard = styled.div`
 
 const ContainerLoader = styled.figure`
   width: 100%;
-  height: -webkit-fill-available;
+  height: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media(max-width: 648px) {
+    height: 18rem;
+  }
 `;
 
 const Loader = styled.img`

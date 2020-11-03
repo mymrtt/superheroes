@@ -80,7 +80,7 @@ const ContainerChoiceDetails = styled.div`
   justify-content: center;
 
   @media(max-width: 648px) {
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
   }
 `;
 
