@@ -142,6 +142,10 @@ const ContainerList = styled.div`
     justify-content: center;
   }
 
+  @media(max-width: 648px) {
+    margin-top: 1rem;
+  }
+
   @media(max-width: 375px) {
     padding: 0 1.55rem;
   }

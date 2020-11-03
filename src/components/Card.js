@@ -47,6 +47,11 @@ const HeroFigureImage = styled.figure`
   max-height: 70%;
   display: flex;
   justify-content: center;
+
+  @media(max-width: 648px) {
+    height: 68%;
+    max-height: 68%;
+  }
 `;
 
 const ContainerUndefinedImg = styled.div`
