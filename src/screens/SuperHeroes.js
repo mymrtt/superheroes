@@ -374,7 +374,7 @@ class SuperHeroes extends Component {
   }
 
   render() {
-    const { searchValue, searchValueError, isSearch, isFavoritesList, isFetching } = this.state;
+    const { searchValue, searchValueError, isFavoritesList, isFetching } = this.state;
     const { listFavorites, } = this.props;
 
     return (
