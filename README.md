@@ -36,10 +36,10 @@ O back-end foi construído através de um clould open source chamado [Back4App](
 $ git clone https://github.com/mymrtt/superheroes
 
 # 2. Instale as Dependências
-Para yarn:
+# Para yarn:
 $ yarn install
 
-Para npm:
+# Para npm:
 $ npm install
 
 ```
@@ -49,10 +49,10 @@ $ npm install
 $ cd superheroes
 
 # 2. Rode localmente
-Para yarn:
+# Para yarn:
 $ yarn start
 
-Para npm:
+# Para npm:
 $ npm start
 ```
 
@@ -61,17 +61,17 @@ $ npm start
 - Como rodar os testes?
 ```bash
 # 1. Abra o Cypress
-Para yarn:
+# Para yarn:
 $ yarn  cy:open
 
-Para npm:
+# Para npm:
 $ npm cy:open
 
 # 2. Abra outra aba em seu terminal, e rode ao mesmo tempo, o projeto
-Para yarn:
+# Para yarn:
 $ yarn start
 
-Para npm:
+# Para npm:
 $ npm start
 
 # 3. Selecione um dos arquivos com os testes
