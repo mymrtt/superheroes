@@ -6,10 +6,9 @@ import { connect } from 'react-redux';
 // Components
 import Card from '../components/Card';
 import Input from '../components/Input';
-
 import Layout from '../components/layout';
 
-// // Images
+// Images
 import searchIcon from '../assets/search.svg';
 import loaderIcon from '../assets/loader.svg';
 
@@ -384,16 +383,7 @@ class SuperHeroes extends Component {
     return (
       <Layout>
         <Container favsMob={listFavorites.length > 0}>
-        {/* {console.log('superHerosList', this.state.superHerosList)} */}
           <Wrapper favsMob={listFavorites.length > 0}>
-            {/* {isSearch && (
-              <ShowButton
-                searchAndFavs
-                onClick={() => this.setState({ isSearch: false })}
-              >
-                Show All
-              </ShowButton>
-            )} */}
             {listFavorites.length > 0 && (
               <ShowButton
                 favsMob={isFavoritesList && listFavorites.length > 0}
