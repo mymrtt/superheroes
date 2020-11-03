@@ -309,27 +309,27 @@ function Card({ hero, selected }){
           <ContainerDescription>
             <DescriptionItem>
               <DescriptionText title>Gender</DescriptionText>
-              <DescriptionText>{item.gender || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item.gender)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Race</DescriptionText>
-              <DescriptionText>{item.race || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item.race)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Height</DescriptionText>
-              <DescriptionText>{item.height[0] || '-'}, {item.height[1] || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item.height[0])}, {CheckDifferentNull(item.height[1])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Weight</DescriptionText>
-              <DescriptionText>{item.weight[0] || '-'}, {item.weight[1] || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item.weight[0])}, {CheckDifferentNull(item.weight[1])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Eye Color</DescriptionText>
-              <DescriptionText>{item['eye-color'] || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item['eye-color'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Hair Color</DescriptionText>
-              <DescriptionText>{item['hair-color'] || '-'}</DescriptionText>
+              <DescriptionText>{CheckDifferentNull(item['hair-color'])}</DescriptionText>
             </DescriptionItem>
           </ContainerDescription>
         </ContainerDetails>
@@ -347,7 +347,7 @@ function Card({ hero, selected }){
     dispatch({ type: 'superHeros/FAV/FAV_HERO', info: hero });
   }
 
-  // Saber se o hero veio através da pesquisa (retornar a imagem correta)
+  // Saber se o hero veio através da pesquisa e retornar a imagem correta
   const heroImage = hero.image && hero.image.url !== undefined ? hero.image.url : hero.data.image.url;
 
   // Saber se o hero está na lista do Redux
