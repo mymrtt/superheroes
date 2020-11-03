@@ -177,7 +177,7 @@ const ErrorMessage = styled.p`
 
 const ShowButton = styled.button`
   position: fixed;
-  right: 0;
+  right: ${(props) => props.searchAndFavs ? 'auto' : '0'};
   top: 0;
   margin-top: 1rem;
   margin-right: 1rem;
@@ -191,6 +191,7 @@ const ShowButton = styled.button`
   cursor: pointer;
   outline: none;
   background-color: ${({ theme }) => theme.text};
+  z-index: 2;
 
   @media(max-width: 768px) {
     width: 7rem;
@@ -200,8 +201,8 @@ const ShowButton = styled.button`
 
   @media(max-width: 648px) {
     position: absolute;
-    left: 0;
-    margin: 1rem 0 1rem .5rem;
+    left: ${(props) => props.searchAndFavs ? '0' : 'auto'};
+    margin: 1rem .5rem 1rem .5rem;
     height: 3rem;
     color: ${({ theme }) => theme.text};
     border: 1px solid;
@@ -385,6 +386,7 @@ class SuperHeroes extends Component {
           <Wrapper favsMob={listFavorites.length > 0}>
             {isSearch && (
               <ShowButton
+                searchAndFavs
                 onClick={() => this.setState({ isSearch: false })}
               >
                 Show All

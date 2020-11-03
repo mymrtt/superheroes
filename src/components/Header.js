@@ -24,7 +24,7 @@ const Container = styled.header`
     width: 100%;
     min-width: 100%;
     height: 5rem;
-    box-shadow: 5px 1px 5px;
+    box-shadow: 1px 1px 4px 0px #5f0f08;
   }
 `;
 
@@ -64,7 +64,6 @@ const MobileMenu = styled.img`
   display: none;
 
   @media(max-width: 648px) {
-    ${'' /* position: relative; */}
     margin-left: .5rem;
     height: 2rem;
     display: flex;
@@ -98,6 +97,10 @@ const ContainerLinks = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media(max-width: 648px) {
+    box-shadow: 1px 1px 4px 0px #5f0f08;
+  }
 `;
 
 const Link = styled(NavLink)`
@@ -159,6 +162,10 @@ const ContainerMenuItem = styled.div`
     width: 100%;
     justify-content: flex-start;
   }
+
+  @media(max-width: 648px) {
+    margin: ${(props) => props.menu && '0'};
+  }
 `;
 
 const Text = styled.p`
@@ -216,6 +223,9 @@ const Header = () => {
       >
         Super Heroes
       </Link>
+      <ContainerMenuItem onClick={handleLogout} menu>
+        <Text>Sair</Text>
+      </ContainerMenuItem>
     </ContainerLinks>
   );
 

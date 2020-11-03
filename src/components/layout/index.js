@@ -25,9 +25,10 @@ const Container = styled.div`
 
 const ContainerImageTheme = styled.figure`
   width: 100%;
-  position: absolute;
+  position: fixed;
 
   @media(max-width: 648px) {
+    position: absolute;
     width: auto;
     align-self: flex-end;
   }
