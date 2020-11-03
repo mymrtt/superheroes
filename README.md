@@ -60,21 +60,21 @@ $ npm start
 
 - Como rodar os testes?
 ```bash
-# 1. Abra o Cypress
+# 1. Rode o Cypress
 # Para yarn:
 $ yarn cy:open
 
 # Para npm:
 $ npm cy:open
 
-# 2. Rode o cypress e o projeto ao mesmo tempo. Para isso, abra outra aba em seu terminal, e...
+# 2. Rode o cypress e o projeto ao mesmo tempo. Para isso, abra outra aba em seu terminal, e execute
 # Para yarn:
 $ yarn start
 
 # Para npm:
 $ npm start
 
-# 3. Selecione um dos arquivos com os testes
+# 3. Selecione um dos arquivos com os testes na janela do cypress
 
 ```
 
