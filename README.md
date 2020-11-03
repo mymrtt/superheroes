@@ -67,14 +67,14 @@ $ yarn  cy:open
 Para npm:
 $ npm cy:open
 
-2. Abra outra aba em seu terminal, e rode ao mesmo tempo, o projeto
+# 2. Abra outra aba em seu terminal, e rode ao mesmo tempo, o projeto
 Para yarn:
 $ yarn start
 
 Para npm:
 $ npm start
 
-3. Selecione um dos arquivos com os testes
+# 3. Selecione um dos arquivos com os testes
 
 ```
 
