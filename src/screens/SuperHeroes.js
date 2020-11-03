@@ -33,9 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
 // Styles
 const Container = styled.div`
   width: 80%;
-  ${'' /* height: 100vh; */}
   display: flex;
-  ${'' /* background-color: #f2f4f7; */}
 
   @media(max-width: 648px) {
     width: 100%;
