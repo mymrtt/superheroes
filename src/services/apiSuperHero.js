@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const cors = 'https://cors-anywhere.herokuapp.com';
-export const API_URL = process.env.REACT_APP_SUPERHERO_API_URL;
+export const API_URL = 'https://superheroapi.com/api/3508522622561545';
 
 export const getAllHeroes = (heroId) => axios({
   url: `${cors}/${API_URL}/${heroId}`,
@@ -10,9 +10,8 @@ export const getAllHeroes = (heroId) => axios({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'originWhitelist': [],
-    'requireHeader': ['origin', 'x-requested-with'],
-    'removeHeaders': ['cookie', 'cookie2']
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, HEAD',
+    'Access-Control-Allow-Headers': 'X-Requested-With',
 	},
 });
 
@@ -22,8 +21,7 @@ export const getHeroByName = (heroName) => axios({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'originWhitelist': [],
-    'requireHeader': ['origin', 'x-requested-with'],
-    'removeHeaders': ['cookie', 'cookie2']
+    'Access-Control-Allow-Headers': 'POST, GET, OPTIONS, HEAD',
+    'Access-Control-Allow-Methods': 'X-Requested-With',
 	},
 });

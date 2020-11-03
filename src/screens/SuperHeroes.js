@@ -35,6 +35,10 @@ const Container = styled.div`
   width: 80%;
   display: flex;
 
+  @media(max-width: 768px) {
+    position: ${(props) => props.favsMob && 'relative'};
+  }
+
   @media(max-width: 648px) {
     width: 100%;
     height: -webkit-fill-available;
@@ -48,7 +52,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
 
   @media(max-width: 768px) {
-    position: ${(props) => props.favsMob && 'relative'};
     padding-top: ${(props) => props.favsMob && '5rem'};
     display: flex;
     flex-direction: column;
@@ -56,7 +59,8 @@ const Wrapper = styled.div`
 `;
 
 const ContainerTitle = styled.div`
-  margin: 2rem;
+  margin-top: ${(props) => props.favs && '3rem'};
+  margin: ${(props) => props.favs ? '3rem 2rem' : '2rem'};
   width: 30%;
   max-width: 30%;
   height: fit-content;
@@ -78,7 +82,9 @@ const ContainerTitle = styled.div`
 
   @media(max-width: 648px) {
     margin-left: 0;
+    margin-bottom: 1rem;
     height: 10rem;
+    min-height: 10rem;
   }
 `;
 
@@ -181,6 +187,7 @@ const ShowButton = styled.button`
   top: 0;
   margin-top: 1rem;
   margin-right: 1rem;
+  margin-left: ${(props) => props.searchAndFavs && '1rem'};
   width: 8rem;
   height: 3rem;
   font-size: .8rem;
@@ -236,12 +243,17 @@ class SuperHeroes extends Component {
       while(i <= 3) {
         const response = await getAllHeroes(Math.floor(Math.random() * 731 + 1));
 
+        console.log('response', response)
+
         if (response) {
           heroes.push(response);
         }
 
         i += 1;
       }
+
+      console.log('heroes', heroes)
+
       setTimeout(() => {
         this.setState({
           superHerosList: heroes,
@@ -298,22 +310,8 @@ class SuperHeroes extends Component {
       this.setState({
         searchValueError: undefined,
       });
-      
-      // Colocando a primeira letra das palavras em maiúsculo. No primeiro caso, verifica se há mais de duas palavras.
-      if (searchValue.includes(' ')) {
-        const value = searchValue.split(' ');
-        let newValue = [];
-          
-        for(let x = 0; x < value.length; x++){
-          newValue.push(value[x].charAt(0).toUpperCase()+value[x].slice(1));
-        }
 
-        this.fetchingGetHeroByName(newValue.join(' '));
-      } else {
-        const formatting = searchValue[0].toUpperCase() + searchValue.slice(1).toLowerCase();
-
-        this.fetchingGetHeroByName(formatting);
-      }
+      this.fetchingGetHeroByName(searchValue);
     }
   }
 
@@ -381,17 +379,17 @@ class SuperHeroes extends Component {
 
     return (
       <Layout>
-        <Container>
+        <Container favsMob={listFavorites.length > 0}>
         {/* {console.log('superHerosList', this.state.superHerosList)} */}
           <Wrapper favsMob={listFavorites.length > 0}>
-            {isSearch && (
+            {/* {isSearch && (
               <ShowButton
                 searchAndFavs
                 onClick={() => this.setState({ isSearch: false })}
               >
                 Show All
               </ShowButton>
-            )}
+            )} */}
             {listFavorites.length > 0 && (
               <ShowButton
                 favsMob={isFavoritesList && listFavorites.length > 0}
@@ -400,12 +398,12 @@ class SuperHeroes extends Component {
                 {!isFavoritesList ? 'Show Favorites' : 'Show All'}
               </ShowButton>
             )}
-            <ContainerTitle>
+            <ContainerTitle favs={listFavorites.length > 0}>
               <Title>Super Heroes</Title>
               <ContainerSearch>
                 <Input 
-                  label="Search for a superhero"
-                  placeholder="Search for a superhero"
+                  label="Search for any superhero"
+                  placeholder="Search for any superhero"
                   value={searchValue}
                   onChange={this.handleSearchValue}
                   inputWidth="100%"

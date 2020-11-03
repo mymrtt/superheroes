@@ -39,7 +39,7 @@ const DefaultInput = styled.input`
   padding: ${(props) => props.inputPadding ? props.inputPadding : '1rem 0'};
   width: ${(props) => props.inputWidth ? props.inputWidth : '65%'};
   border: none;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.input};
   border-bottom: ${(props) => props.borderBottom ? props.borderBottom : '2px solid #eef1f2'};
   background: transparent;
   outline: none;

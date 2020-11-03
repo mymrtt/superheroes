@@ -35,7 +35,8 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  border-radius: 10px;
+  box-shadow: 1px 1px 4px 0px #5f0f08;
+  border-radius: 0;
 
   @media(max-width: 648px) {
     position: inherit;
@@ -52,6 +53,7 @@ const Logo = styled.img`
 
   @media(max-width: 768px) {
     margin: 2rem;
+    margin-top: 5rem;
     height: 5rem;
   }
 
@@ -143,7 +145,6 @@ const ContainerMenuItem = styled.div`
   padding: 1rem 2rem;
   justify-content: center;
   align-items: center;
-  border-bottom: ${(props) => props.user && '0.1px solid #fff'};
   cursor: ${(props) => !props.user && 'pointer'};
 
   ${(props) => !props.user && (
@@ -217,12 +218,6 @@ const Header = () => {
         data-testid="header-superheroes"
       >
         Super Heroes
-      </Link>
-      <Link
-        exact to="/dashboard"
-        activeClassName="active"
-      >
-        Dashboard
       </Link>
       <ContainerMenuItem onClick={handleLogout} menu>
         <Text>Sair</Text>
