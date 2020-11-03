@@ -139,7 +139,7 @@ const ContainerMenu = styled.div`
 
 const ContainerMenuItem = styled.div`
   width: 50%;
-  display: flex;
+  display: ${(props) => props.menu ? 'none' : 'flex'};
   padding: 1rem 2rem;
   justify-content: center;
   align-items: center;
@@ -164,6 +164,7 @@ const ContainerMenuItem = styled.div`
   }
 
   @media(max-width: 648px) {
+    display: flex;
     margin: ${(props) => props.menu && '0'};
   }
 `;
@@ -210,18 +211,18 @@ const Header = () => {
   const renderLinks = () => (
     <ContainerLinks>
       <Link
-        exact to="/dashboard"
-        activeClassName="active"
-      >
-        Dashboard
-      </Link>
-      <Link
         exact to="/superheroes"
         activeClassName="active"
         lastOne
         data-testid="header-superheroes"
       >
         Super Heroes
+      </Link>
+      <Link
+        exact to="/dashboard"
+        activeClassName="active"
+      >
+        Dashboard
       </Link>
       <ContainerMenuItem onClick={handleLogout} menu>
         <Text>Sair</Text>

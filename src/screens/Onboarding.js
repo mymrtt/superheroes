@@ -165,7 +165,7 @@ class Onboarding extends Component {
         localStorage.setItem('username',  deconstructing.username);
         
         this.setState({
-          redirect: '/dashboard',
+          redirect: '/superheroes',
         });
       }
     } catch (error) {
