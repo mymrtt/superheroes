@@ -6,7 +6,7 @@ Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 - Favoritar/Desfavoritar super heróis;
 - Visualizar lista de super heróis favoritados;
 - Buscar por um super herói;
-- Mudar o tema da aplicação entre dark e light.
+- Escolher o tema da aplicação (dark/light).
 
 ## 🔭 Link Para o Deploy: [superheroes](https://mymrttsuperheroes.netlify.app/)
 
