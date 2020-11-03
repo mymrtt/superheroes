@@ -24,35 +24,58 @@ Foi necessário a utilização de um proxy e [cors anywhere - heroku](https://co
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://github.com/axios/axios)
+- [Cypress](https://www.cypress.io/)
 
 ## Back-end
 O back-end foi construído através de um clould open source chamado [Back4App](https://www.back4app.com/)
 - Nesse cloud estão armanezados os usuários cadastrados na aplicação. 
 
-## Como Instalar
+## Como Instalar o Projeto
 ```bash
 # 1. Clone o Projeto
 $ git clone https://github.com/mymrtt/superheroes
 
 # 2. Instale as Dependências
-Para yarn:
+# Para yarn:
 $ yarn install
 
-Para npm:
+# Para npm:
 $ npm install
 
 ```
-## Como Rodar
+## Como Rodar o Projeto
 ```bash
 # 1. Entre na pasta
 $ cd superheroes
 
 # 2. Rode localmente
-Para yarn:
+# Para yarn:
 $ yarn start
 
-Para npm:
+# Para npm:
 $ npm start
+```
+
+## Testes Automatizados Utilizando [Cypress](https://www.cypress.io/)
+
+- Como rodar os testes?
+```bash
+# 1. Abra o Cypress
+# Para yarn:
+$ yarn cy:open
+
+# Para npm:
+$ npm cy:open
+
+# 2. Abra outra aba em seu terminal, e rode ao mesmo tempo, o projeto
+# Para yarn:
+$ yarn start
+
+# Para npm:
+$ npm start
+
+# 3. Selecione um dos arquivos com os testes
+
 ```
 
 
