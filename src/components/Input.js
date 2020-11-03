@@ -75,6 +75,7 @@ const Input = (props) => (
         heros={props.heros}
         onChange={props.onChange}
         error={props.error}
+        data-testid={props.testid}
       />
       {props.pass && (
         !props.showPass ? (

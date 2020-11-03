@@ -35,11 +35,13 @@ const Text = styled.p`
   margin-right: .5rem;
 `;
 
-const Button = ({ background, onClick, color, text, isFetching, tabletWith }) => (
+const Button = ({ background, onClick, color, text, isFetching, tabletWith, testid, type }) => (
   <Default
     background={background}
     tabletWith={tabletWith}
+    data-testid={testid}
     onClick={onClick}
+    type={type}
   >
     <Text color={color}>
       {text}

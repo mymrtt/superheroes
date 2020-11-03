@@ -212,6 +212,7 @@ const Header = () => {
         exact to="/superheroes"
         activeClassName="active"
         lastOne
+        data-testid="header-superheroes"
       >
         Super Heroes
       </Link>

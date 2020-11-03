@@ -263,7 +263,7 @@ class Onboarding extends Component {
     return (
       <Container>
         <Content>
-          <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit} id="login-submit">
             <Title>{isCreateAccount ? 'Sign up' : 'Sign in'}</Title>
               {isCreateAccount && (
                 <Input
@@ -285,6 +285,7 @@ class Onboarding extends Component {
                 value={user.email}
                 onChange={(ev) => this.handleChange('email', ev)}
                 error={emailError}
+                testid="signin-email"
               />
               {emailError && <ErrorMessage>Enter a valid email.</ErrorMessage>}
                 <Input
@@ -301,6 +302,7 @@ class Onboarding extends Component {
                   showPass={this.state.showPassword}
                   handleShowPassword={this.handleShowPassword}
                   error={passwordError}
+                  testid="signin-password"
                 />
               {passwordError && <ErrorMessage>Enter a valid password.</ErrorMessage>}
               {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -308,11 +310,12 @@ class Onboarding extends Component {
                 text={isCreateAccount ? 'Sign up' : 'Sign in'}
                 isFetching={isFetching}
                 tabletWith="70%"
+                type="submit"
               />
             <AnotherOptionText>
               {isCreateAccount ? (
                 <Fragment>
-                  Do you already have an account? <span onClick={this.handleScreen}>Sign in</span>
+                  Do you already have an account? <span onClick={this.handleScreen} data-testid="signin-screen">Sign in</span>
                 </Fragment>
               ) : (
                 <Fragment>
