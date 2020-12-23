@@ -8,7 +8,7 @@ Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 - Buscar por um super herói;
 - Escolher o tema da aplicação (dark/light).
 
-## 🔭 Link Para o Deploy: [superheroes](https://mymrttsuperheroes.netlify.app/)
+## 🔭 Link Online: [superheroes](https://mymrttsuperheroes.netlify.app/)
 
 ## ⚡ Tópico Importante ⚡
 Foi necessário a utilização do [cors anywhere - heroku](https://cors-anywhere.herokuapp.com) para os requests na API porque, após qualquer request, a API retornava um erro de Cors. Pesquisei bastante sobre, até que cheguei nessa solução.
