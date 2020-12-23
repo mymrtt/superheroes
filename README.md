@@ -78,4 +78,4 @@ $ npm start
 ```
 
 
-Made with ♥ by [Yasmin Miranda](https://www.linkedin.com/in/yasmin-miranda/)
+Feito com ♥ por [Yasmin Miranda](https://www.linkedin.com/in/yasmin-miranda/)
