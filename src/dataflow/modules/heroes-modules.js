@@ -1,8 +1,8 @@
 // Action Type
-const ADD_HERO = 'superHeroes/ADD/ADD_HERO';
-const SEARCH_HERO = 'superHeroes/SEARCH/SEARCH_HERO';
-const FAV_HERO = 'superHeros/FAV/FAV_HERO';
-const UNFAV_HERO = 'superHeros/UNFAV/UNFAV_HERO';
+const ADD_HERO = 'superHeroes/ADD/ADD_HERO'
+const SEARCH_HERO = 'superHeroes/SEARCH/SEARCH_HERO'
+const FAV_HERO = 'superHeros/FAV/FAV_HERO'
+const UNFAV_HERO = 'superHeros/UNFAV/UNFAV_HERO'
 
 const initialState = {
   listSearch: [],

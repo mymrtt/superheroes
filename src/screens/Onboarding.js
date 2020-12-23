@@ -1,17 +1,17 @@
 // Libs
-import React, { Component, Fragment } from 'react';
-import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import React, { Component, Fragment } from 'react'
+import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 
 // Images
-import background from '../assets/wonder_woman.jpg';
+import background from '../assets/wonder_woman.jpg'
 
 // Components
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from '../components/Input'
+import Button from '../components/Button'
 
 // Services
-import { createUser, login } from '../services/apiBack4App';
+import { createUser, login } from '../services/apiBack4App'
 
 // Styles
 const Container = styled.div`
@@ -117,10 +117,7 @@ class Onboarding extends Component {
           isFetching: false,
           isCreateAccount: false,
         });
-      }
-
-      console.log('response create user api', response)
-      
+      }      
     } catch (error) {
       console.log('error', error);
       console.log('error response', error.response);
@@ -208,7 +205,11 @@ class Onboarding extends Component {
   }
 
   handleSubmit = (event) => {
-    const { user, isCreateAccount, usernameError, emailError, passwordError } = this.state;
+    const {
+      user, isCreateAccount, 
+      usernameError, emailError, 
+      passwordError
+    } = this.state;
     
     event.preventDefault();
 
@@ -258,7 +259,12 @@ class Onboarding extends Component {
   }
 
   render() {
-    const { isCreateAccount, user, usernameError, emailError, passwordError, redirect, error, isFetching } = this.state;
+    const { 
+      isCreateAccount, user, 
+      usernameError, emailError, 
+      passwordError, redirect,
+      error, isFetching 
+    } = this.state;
 
     return (
       <Container>

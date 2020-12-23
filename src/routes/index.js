@@ -1,12 +1,12 @@
 // Libs
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 // Screens
-import Onboarding from '../screens/Onboarding';
-import SuperHeroes from '../screens/SuperHeroes';
+import Onboarding from '../screens/Onboarding'
+import SuperHeroes from '../screens/SuperHeroes'
 
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute'
 
 const Routes = () => (
 	<BrowserRouter>

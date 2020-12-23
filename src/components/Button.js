@@ -1,9 +1,9 @@
 // Libs
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 // Images
-import loaderWhite from '../assets/loader-white.svg';
+import loaderWhite from '../assets/loader-white.svg'
 
 // Styles
 const Default = styled.button`
@@ -39,9 +39,9 @@ const Button = ({ background, onClick, color, text, isFetching, tabletWith, test
   <Default
     background={background}
     tabletWith={tabletWith}
-    data-testid={testid}
     onClick={onClick}
     type={type}
+    data-testid={testid}
   >
     <Text color={color}>
       {text}
@@ -51,7 +51,7 @@ const Button = ({ background, onClick, color, text, isFetching, tabletWith, test
 );
 
 Button.defaultProps = {
-  text: 'hello world',
+  text: 'text',
   color: '#fff',
   background: '#842219'
 };

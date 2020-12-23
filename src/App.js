@@ -1,9 +1,9 @@
 // Libs
-import React from 'react';
+import React from 'react'
 
 // Routes
-import Routes from './routes';
+import Routes from './routes'
 
-const App = () => <Routes />;
+const App = () => <Routes />
 
-export default App;
+export default App

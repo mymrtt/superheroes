@@ -1,22 +1,22 @@
 // Libs
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 // Components
-import Card from '../components/Card';
-import Input from '../components/Input';
-import Layout from '../components/layout';
+import Card from '../components/Card'
+import Input from '../components/Input'
+import Layout from '../components/layout'
 
 // Images
-import searchIcon from '../assets/search.svg';
-import loaderIcon from '../assets/loader.svg';
+import searchIcon from '../assets/search.svg'
+import loaderIcon from '../assets/loader.svg'
 
 // Services
-import { getAllHeroes, getHeroByName } from '../services/apiSuperHero';
+import { getAllHeroes, getHeroByName } from '../services/apiSuperHero'
 
 // Redux
-import { searchHero, unfavHero, favHero } from '../dataflow/modules/heroes-modules';
+import { searchHero, unfavHero, favHero } from '../dataflow/modules/heroes-modules'
 
 const mapStateToProps = (state) => ({
   listSearch: state.heroes.listSearch,
@@ -243,7 +243,7 @@ class SuperHeroes extends Component {
 
       const heroes = [];
       let i = 1;
-      while(i <= 3) {
+      while(i <= 6) {
         const response = await getAllHeroes(Math.floor(Math.random() * 731 + 1));
 
         console.log('response', response)
@@ -254,8 +254,6 @@ class SuperHeroes extends Component {
 
         i += 1;
       }
-
-      console.log('heroes', heroes)
 
       setTimeout(() => {
         this.setState({
@@ -337,43 +335,28 @@ class SuperHeroes extends Component {
   }
 
   renderHeroList = () => {
-    const { isSearch, isFavoritesList, heroSelected, superHerosList} = this.state;
+    const { isSearch, isFavoritesList, superHerosList} = this.state;
     const { listSearch, listFavorites} = this.props;
 
-    if (isSearch && listSearch.length > 0) {
-      return (
-        listSearch.map(item => (
-          <ContainerCard onClick={() => this.handleSelectedHero(item)}>
-            <Card
-              hero={item}
-              selected={heroSelected}
-            />
-          </ContainerCard>
-        ))
-      )
+    let list;
+
+    if(isSearch && listSearch.length > 0) {
+      list = listSearch;
     } else if (isFavoritesList && listFavorites.length > 0) {
-      return (
-        listFavorites.map(item => (
-          <ContainerCard onClick={() => this.handleSelectedHero(item)}>
-            <Card
-              hero={item}
-              selected={heroSelected}
-            />
-          </ContainerCard>
-        ))
-      )
+      list = listFavorites;
     } else {
-      return (
-        superHerosList && superHerosList.length > 0 && superHerosList.map(item => (
-          <ContainerCard onClick={() => this.handleSelectedHero(item)}>
-            <Card
-              hero={item}
-              selected={heroSelected}
-            />
-          </ContainerCard>
-        ))
-      )
+      list = superHerosList;
     }
+
+    return (
+      list.map(item => (
+        <ContainerCard onClick={() => this.handleSelectedHero(item)}>
+          <Card
+            hero={item}
+          />
+        </ContainerCard>
+      ))
+    )
   }
 
   render() {

@@ -1,13 +1,13 @@
 // Libs
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { NavLink, Redirect } from 'react-router-dom';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { NavLink, Redirect } from 'react-router-dom'
 
 // Images
-import apertureIcon from '../assets/aperture.svg';
-import hamburgerMenuOpen from '../assets/menu.svg';
-import hamburgerMenuClose from '../assets/x.svg';
-import userIcon from '../assets/user.svg';
+import apertureIcon from '../assets/aperture.svg'
+import hamburgerMenuOpen from '../assets/menu.svg'
+import hamburgerMenuClose from '../assets/x.svg'
+import userIcon from '../assets/user.svg'
 
 // Styles
 const Container = styled.header`
@@ -235,11 +235,18 @@ const Header = () => {
       <Content>
         <Logo src={apertureIcon} alt="logo" />
         {!isMobileMenuShowing ? (
-          <MobileMenu src={hamburgerMenuOpen} alt="menu" onClick={handleMobileMenu} />
+          <MobileMenu
+            src={hamburgerMenuOpen}
+            alt="menu"
+            onClick={handleMobileMenu}
+          />
         ) : (
-          <MobileMenu src={hamburgerMenuClose} alt="menu" onClick={handleMobileMenu} />
+          <MobileMenu
+            src={hamburgerMenuClose}
+            alt="menu"
+            onClick={handleMobileMenu}
+          />
         )}
-        
         <WrapperLinks display={isMobileMenuShowing}>
           {renderLinks()}
         </WrapperLinks>

@@ -1,16 +1,15 @@
 // Libs
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components'
 
 // Components
-import Header from '../Header';
-import { lightTheme, darkTheme } from '../../style/theme';
-import GlobalTheme from '../../style/global';
+import Header from '../Header'
+import { lightTheme, darkTheme } from '../../style/theme'
+import GlobalTheme from '../../style/global'
 
 // Images
-import moonIcon from '../../assets/moon.svg';
-import sunIcon from '../../assets/sun.svg';
+import moonIcon from '../../assets/moon.svg'
+import sunIcon from '../../assets/sun.svg'
 
 // Styles
 const Container = styled.div`

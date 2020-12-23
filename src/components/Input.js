@@ -1,10 +1,10 @@
 // Libs
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 // Images
-import eyeOn from '../assets/eye.svg';
-import eyeOff from '../assets/eye-off.svg';
+import eyeOn from '../assets/eye.svg'
+import eyeOff from '../assets/eye-off.svg'
 
 // Styles
 const Container = styled.div`
@@ -99,7 +99,7 @@ const Input = (props) => (
 Input.defaultProps = {
 	label: 'label',
 	type: 'text',
-	placeholder: 'Digite aqui...',
+	placeholder: 'Type here...',
 	required: true,
 };
 

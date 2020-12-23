@@ -1,28 +1,46 @@
 {
-  "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-        "jsx": true
-    },
-    "sourceType": "module"
+  "plugins": ["prettier", "react", "react-hooks"],
+  "extends": ["react-app", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
   },
   "rules": {
-    "max-len": [1, 120, 2, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
-    "react/prop-types": 0,
-    "no-shadow": "off",
-    "radix": 0,
-    "indent": [2, "tab"],
-    "no-tabs": 0
-
-  },
-  "globals": {
-    "window": true,
-    "document": true,
-    "navigator": true,
-    "jest": true
-  },
-  "extends": ["airbnb-base","plugin:react/recommended"]
+    "object-curly-spacing": ["warn", "always"],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "react/jsx-key": "error",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-boolean-value": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/destructuring-assignment": "off",
+    "react-hooks/exhaustive-deps": "off"
+  }
 }

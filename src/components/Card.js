@@ -1,14 +1,14 @@
 // Libs
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react'
+import styled from 'styled-components'
 
 // Images
-import CloseIcon from '../assets/x.svg';
-import UnlikedIcon from '../assets/unliked.svg';
-import LikedIcon from '../assets/liked.svg';
+import CloseIcon from '../assets/x.svg'
+import UnlikedIcon from '../assets/unliked.svg'
+import LikedIcon from '../assets/liked.svg'
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
 
 //Styles
 const Container = styled.div`
@@ -180,7 +180,7 @@ const ContainerAliasesTags = styled.div`
   flex-wrap: wrap;
 `;
 
-function Card({ hero, selected }){
+function Card({ hero }){
   const [handleAppearance, setHandleAppearance] = useState(false);
   const [handleBiography, setHandleBiography] = useState(false);
   const [handlePowerstats, setHandlePowerstats] = useState(false);
@@ -208,7 +208,7 @@ function Card({ hero, selected }){
 
   const renderPowerstats = () => {
     // Saber se o dado veio através da pesquisa
-    const item = selected.powerstats || selected.data.powerstats;
+    const item = hero.powerstats || hero.data.powerstats;
 
     return (
       <Overlay>
@@ -253,7 +253,7 @@ function Card({ hero, selected }){
 
   const renderBiography = () => {
     // Saber se o dado veio através da pesquisa
-    const item = selected.biography || selected.data.biography;
+    const item = hero.biography || hero.data.biography;
 
     return (
       <Overlay>
@@ -307,7 +307,7 @@ function Card({ hero, selected }){
 
   const renderAppearance = () => {
     // Saber se o dado veio através da pesquisa
-    const item = selected.appearance || selected.data.appearance;
+    const item = hero.appearance || hero.data.appearance;
 
     return (
       <Overlay>
@@ -369,16 +369,27 @@ function Card({ hero, selected }){
   return (
     <Container>
       {!isFavorite && !heroIncludes ? (
-        <LikeImage src={UnlikedIcon} alt="unlike" onClick={handleFavorite} />
+        <LikeImage
+          src={UnlikedIcon}
+          alt="unlike"
+          onClick={handleFavorite}
+        />
       ) : (
-        <LikeImage src={LikedIcon} alt="like" onClick={handleUnFavorite} />
+        <LikeImage
+          src={LikedIcon}
+          alt="like"
+          onClick={handleUnFavorite}
+        />
       )}
       <HeroName>{hero.name || hero.data.name || 'without name'}</HeroName>
       <HeroFigureImage>
       {hero.image && hero.image.url === undefined ? (
         <ContainerUndefinedImg />
       ): (
-        <HeroImage src={heroImage} alt={hero.name || hero.data.name || '-'} />
+        <HeroImage
+          src={heroImage}
+          alt={hero.name || hero.data.name || '-'}
+        />
       )}
       </HeroFigureImage>
       <ContainerChoiceDetails>
