@@ -1,13 +1,12 @@
 // Libs
 import {
 	createStore, combineReducers,
-} from 'redux';
+} from 'redux'
+import { persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 // Reducers
-import Heroes from './dataflow/modules/heroes-modules';
-
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import Heroes from './dataflow/modules/heroes-modules'
 
 const reducers = combineReducers({
 	heroes: Heroes,

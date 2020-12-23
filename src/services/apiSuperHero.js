@@ -1,8 +1,8 @@
 // Libs
-import axios from 'axios';
+import axios from 'axios'
 
-const cors = 'https://cors-anywhere.herokuapp.com';
-export const API_URL = 'https://superheroapi.com/api/3508522622561545';
+const cors = 'https://cors-anywhere.herokuapp.com'
+export const API_URL = 'https://superheroapi.com/api/3508522622561545'
 
 export const getAllHeroes = (heroId) => axios({
   url: `${cors}/${API_URL}/${heroId}`,

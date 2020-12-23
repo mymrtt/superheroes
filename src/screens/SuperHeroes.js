@@ -335,8 +335,8 @@ class SuperHeroes extends Component {
   }
 
   renderHeroList = () => {
-    const { isSearch, isFavoritesList, superHerosList} = this.state;
-    const { listSearch, listFavorites} = this.props;
+    const { isSearch, isFavoritesList, superHerosList } = this.state;
+    const { listSearch, listFavorites } = this.props;
 
     let list;
 

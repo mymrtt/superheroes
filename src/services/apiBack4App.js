@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from 'axios'
 
-export const API_URL = process.env.REACT_APP_BACK_API_URL;
+export const API_URL = process.env.REACT_APP_BACK_API_URL
 
 export const createUser = (user) => axios({
   url: `${API_URL}/classes/_User`,
