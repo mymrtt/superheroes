@@ -1,5 +1,5 @@
 // Libs
-import React, { Component, Fragment } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 
@@ -87,255 +87,202 @@ const ErrorMessage = styled.p`
   }
 `;
 
-class Onboarding extends Component {
-  state = {
-    isCreateAccount: true,
-    user: {
-      username: '',
-      email: '',
-      password: '',
-    },
-    usernameError: false,
-    emailError: false,
-    passwordError: false,
-    redirect: undefined,
-    showPassword: false,
-    error: undefined,
-    isFetching: undefined,
-  };
+const Onboarding = () => {
+  const [isCreateAccount, setIsCreateAccount] = useState(true);
+  const [user, setUser] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [redirect, setRedirect] = useState(undefined);
+  const [errorText, setErrorText] = useState(undefined);
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [isFetching, setIsFetching] = useState(undefined);
 
-  fetchingCreateUserAccount = async (user) => {
+  const fetchingCreateUserAccount = async (user) => {
     try {
-      this.setState({
-        isFetching: true,
-      });
+      setIsFetching(true);
 
       const response = await createUser(user);
 
       if (response) {
-        this.setState({
-          isFetching: false,
-          isCreateAccount: false,
-        });
+        setIsFetching(false);
+        setIsCreateAccount(false);
       }      
     } catch (error) {
-      console.log('error', error);
-      console.log('error response', error.response);
 
-      const ErrorMessage = error.response.data.code;
+      const { code } = error.response.data.code;
       
-      if (ErrorMessage === 202) {
-				this.setState({
-          error: 'Account already exists for this username.',
-          isFetching: false,
-				});
-			} else if (ErrorMessage === 203) {
-				this.setState({
-          error: 'Account already exists for this email address.',
-          isFetching: false,
-				});
-			} else {
-        this.setState({
-          error: 'Unknown error.',
-          isFetching: false,
-				});
-      }
+      if (code === 202) {
+        setErrorText('Account already exists for this username.')
+    		} 
+      
+      if (code === 203) {
+        setErrorText('Account already exists for this email address.')
+    		} 
+
+      setErrorText('Unknown error');
+      setIsFetching(false);
     }
   }
 
-  fetchingUserLogin = async (user) => {
+  const fetchingUserLogin = async (user) => {
     try {
-      this.setState({
-        isFetching: true,
-      });
+      setIsFetching(true);
 
       const response = await login(user.email, user.password);
 
       if (response) {
-        this.setState({
-          isFetching: false,
-        });
+        setIsFetching(false);
 
-        const deconstructing = response.data;
+        const { data } = response;
 
-        localStorage.setItem('sessionToken', deconstructing.sessionToken);
-        localStorage.setItem('username',  deconstructing.username);
+        localStorage.setItem('sessionToken', data.sessionToken);
+        localStorage.setItem('username',  data.username);
         
-        this.setState({
-          redirect: '/superheroes',
-        });
+        setRedirect('/superheroes');
       }
     } catch (error) {
-      this.setState({
-        isFetching: false,
-      });
+      setIsFetching(false);
 
-      console.log('error', error);
-      console.log('error response', error.response);
+      const { code } = error.response.data;
 
-      const ErrorMessage = error.response.data.code;
+      if (code === 101) {
+        setErrorText('Invalid username/password.');
+      } 
 
-      if (ErrorMessage === 101) {
-        this.setState({
-          error: 'Invalid username/password.',
-        });
-      } else {
-        this.setState({
-					error: 'Unknown error.',
-				});
-      }
+      setErrorText('Unknown error.');
     }
   }
 
-  handleScreen = () => {
-    this.setState({
-      isCreateAccount: !this.state.isCreateAccount,
+  const handleScreen = () => {
+    setIsCreateAccount(!isCreateAccount);
+    setUsernameError(false);
+    setEmailError(false);
+    setPasswordError(false);
+    setUser({
+      username: '',
+      email: '',
+      password: ''
     });
-
-    this.setState({
-			usernameError: false,
-      emailError: false,
-      passwordError: false,
-			user: {
-				username: '',
-				email: '',
-				password: '',
-			},
-		});
   }
 
-  handleSubmit = (event) => {
-    const {
-      user, isCreateAccount, 
-      usernameError, emailError, 
-      passwordError
-    } = this.state;
-    
+  const handleSubmit = event => {
     event.preventDefault();
 
     if (!usernameError && !emailError && !passwordError) {
       if (!isCreateAccount) {
         delete user.username;
         
-        this.fetchingUserLogin(user);
+        fetchingUserLogin(user);
       } else {
-        this.fetchingCreateUserAccount(user);
+        fetchingCreateUserAccount(user);
       }
     }
   }
 
-  handleChange = (field, ev) => {
-    const { user } = this.state;
-
+  const handleChange = (field, ev) => {
     user[field] = ev.target.value;
 
     if (field === 'username') {
-      this.setState({
-        usernameError: ev.target.value.length < 4,
+      setUser({
+        ...user,
+        username: ev.target.value
       });
+      setUsernameError(ev.target.value.length < 4);
     }
 
     if (field === 'email') {
-      this.setState({
-        emailError: ev.target.value.length < 6,
+      setUser({
+        ...user,
+        email: ev.target.value
       });
+      setEmailError(ev.target.value.length < 6);
     }
 
     if (field === 'password') {
-      this.setState({
-        passwordError: ev.target.value.length < 6,
+      setUser({
+        ...user,
+        password: ev.target.value,
       });
+      setPasswordError(ev.target.value.length < 6);
     }
-
-    this.setState({
-      user,
-    })
   }
 
-  handleShowPassword = () => {
-    this.setState({
-      showPassword: !this.state.showPassword,
-    });
-  }
-
-  render() {
-    const { 
-      isCreateAccount, user, 
-      usernameError, emailError, 
-      passwordError, redirect,
-      error, isFetching 
-    } = this.state;
-
-    return (
-      <Container>
-        <Content>
-          <Form onSubmit={this.handleSubmit} id="login-submit">
-            <Title>{isCreateAccount ? 'Sign up' : 'Sign in'}</Title>
-              {isCreateAccount && (
+  return (
+    <Container>
+      <Content>
+        <Form onSubmit={handleSubmit} id="login-submit">
+          <Title>{isCreateAccount ? 'Sign up' : 'Sign in'}</Title>
+            {isCreateAccount && (
+              <>
                 <Input
                   type="text"
                   label="Username"
                   inputWidthTablet="70%"
                   placeholder="Enter your username"
                   value={user.username}
-                  onChange={(ev) => this.handleChange('username', ev)}
+                  onChange={(ev) => handleChange('username', ev)}
                   error={usernameError}
                 />
-              )}
-              {usernameError && <ErrorMessage>Enter a valid username.</ErrorMessage>}
-              <Input
-                type="email" 
-                label="Email"
-                inputWidthTablet="70%"
-                placeholder="you@exemple.com"
-                value={user.email}
-                onChange={(ev) => this.handleChange('email', ev)}
-                error={emailError}
-                testid="signin-email"
-              />
-              {emailError && <ErrorMessage>Enter a valid email.</ErrorMessage>}
-                <Input
-                  type={this.state.showPassword ? 'text' : 'password'}
-                  label="Password"
-                  placeholder="Enter your password"
-                  value={user.password}
-                  onChange={(ev) => this.handleChange('password', ev)}
-                  pass={true}
-                  inputWidth="92%"
-                  inputWidthTablet="75%"
-                  wrapperWithTablet="70%"
-                  borderBottom="transparent"
-                  showPass={this.state.showPassword}
-                  handleShowPassword={this.handleShowPassword}
-                  error={passwordError}
-                  testid="signin-password"
-                />
-              {passwordError && <ErrorMessage>Enter a valid password.</ErrorMessage>}
-              {error && <ErrorMessage>{error}</ErrorMessage>}
-              <Button
-                text={isCreateAccount ? 'Sign up' : 'Sign in'}
-                isFetching={isFetching}
-                tabletWith="70%"
-                type="submit"
-              />
-            <AnotherOptionText>
-              {isCreateAccount ? (
-                <Fragment>
-                  Do you already have an account? <span onClick={this.handleScreen} data-testid="signin-screen">Sign in</span>
-                </Fragment>
-              ) : (
-                <Fragment>
-                  Don't have an account yet? <span onClick={this.handleScreen}>Sign up</span>
-                </Fragment>
-              )}
-            </AnotherOptionText>
-          </Form>
-        </Content>
-        <ContainerBg />
-        {redirect && <Redirect exact to={redirect} />}
-      </Container>
-    )
-  }
+                {usernameError && <ErrorMessage>Enter a valid username.</ErrorMessage>}
+              </>
+            )}
+            <Input
+              type="email" 
+              label="Email"
+              inputWidthTablet="70%"
+              placeholder="you@exemple.com"
+              value={user.email}
+              onChange={(ev) => handleChange('email', ev)}
+              error={emailError}
+              testid="signin-email"
+            />
+            {emailError && <ErrorMessage>Enter a valid email.</ErrorMessage>}
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              label="Password"
+              placeholder="Enter your password"
+              value={user.password}
+              onChange={(ev) => handleChange('password', ev)}
+              pass={true}
+              inputWidth="92%"
+              inputWidthTablet="75%"
+              wrapperWithTablet="70%"
+              borderBottom="transparent"
+              showPass={showPassword}
+              handleShowPassword={() => setShowPassword(!showPassword)}
+              error={passwordError}
+              testid="signin-password"
+            />
+            {passwordError && <ErrorMessage>Enter a valid password.</ErrorMessage>}
+            {errorText && <ErrorMessage>{errorText}</ErrorMessage>}
+            <Button
+              text={isCreateAccount ? 'Sign up' : 'Sign in'}
+              isFetching={isFetching}
+              tabletWith="70%"
+              type="submit"
+            />
+          <AnotherOptionText>
+            {isCreateAccount ? (
+              <>
+                Do you already have an account? <span onClick={handleScreen} data-testid="signin-screen">Sign in</span>
+              </>
+            ) : (
+              <>
+                Don't have an account yet? <span onClick={handleScreen}>Sign up</span>
+              </>
+            )}
+          </AnotherOptionText>
+        </Form>
+      </Content>
+      <ContainerBg />
+      {redirect && <Redirect exact to={redirect} />}
+   </Container>
+  )
 }
 
 export default Onboarding;
