@@ -88,9 +88,9 @@ const WrapperLinks = styled.div`
     top: 5rem;
     left: 0;
     min-height: max-content;
-    display: ${(props) => props.display ? 'flex' : 'none'};
-    z-index: 3;
+    display: ${({ display }) => display ? 'flex' : 'none'};
     background-color: ${({ theme }) => theme.body};
+    z-index: 3;
   }
 `;
 
@@ -121,7 +121,7 @@ const Link = styled(NavLink)`
   @media(max-width: 1024px) {
     padding: 1rem;
     margin: 0;
-    margin-bottom: ${(props) => !props.lastOne && '.5rem'};
+    margin-bottom: ${({ lastOne }) => !lastOne && '.5rem'};
   }
 `;
 
@@ -141,14 +141,16 @@ const ContainerMenu = styled.div`
 
 const ContainerMenuItem = styled.div`
   width: 50%;
-  display: ${(props) => props.menu ? 'none' : 'flex'};
+  display: ${({ menu }) => menu ? 'none' : 'flex'};
   padding: 1rem 2rem;
   justify-content: center;
   align-items: center;
-  cursor: ${(props) => !props.user && 'pointer'};
 
-  ${(props) => !props.user && (
-    `&:hover {
+  ${({ user }) => !user && (
+    `
+    cursor: pointer;
+
+    &:hover {
       background-color: #842219;
 
       p {
@@ -165,17 +167,20 @@ const ContainerMenuItem = styled.div`
   }
 
   @media(max-width: 648px) {
+    margin: ${({ menu }) => menu && '0'};
     display: flex;
-    margin: ${(props) => props.menu && '0'};
   }
 `;
 
 const Text = styled.p`
   margin: .5rem;
   color: ${({ theme }) => theme.text};
-  white-space: ${(props) => props.username && 'nowrap'};; 
-  overflow: ${(props) => props.username && 'hidden'};
-  text-overflow: ${(props) => props.username && 'ellipsis'};
+
+  ${(props) => props.username && `
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `};
 `;
 
 const Header = () => {
@@ -194,7 +199,7 @@ const Header = () => {
 
   const renderMenu = () => {
     const dataName = localStorage.getItem('username');
-    const username = dataName[0].toUpperCase() + dataName.slice(1).toLowerCase();
+    const username = dataName && (dataName?.[0].toUpperCase() + dataName.slice(1).toLowerCase());
 
     return (
       <ContainerMenu>
