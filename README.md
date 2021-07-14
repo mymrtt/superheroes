@@ -13,7 +13,7 @@ Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 ## ⚡ Tópico Importante ⚡
 Foi necessário a utilização do [cors - bridged](https://cors.bridged.cc) para a correção do erro de CORS após os requests na API.
 
-- Você consegue visualzar no arquivo apiSuperHero (src / services / apiSuperHero.js).
+- Você consegue visualizar no arquivo apiSuperHero (src / services / apiSuperHero.js).
 
 ## 💻 Linguagem, Tecnologias e Bibliotecas 
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
