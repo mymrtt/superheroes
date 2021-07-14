@@ -11,7 +11,7 @@ Essa é uma mini aplicação com o objetivo de fazer consultas a [SuperHero API]
 ## 🔭 Link Online: [superheroes](https://mymrttsuperheroes.netlify.app/)
 
 ## ⚡ Tópico Importante ⚡
-Foi necessário a utilização do [cors anywhere - heroku](https://cors-anywhere.herokuapp.com) para os requests na API porque, após qualquer request, a API retornava um erro de CORS. Pesquisei bastante sobre, até que cheguei nessa solução.
+Foi necessário a utilização do [cors anywhere - bridged](https://cors.bridged.cc) para a correção do erro de CORS após os requests na API.
 
 - Você consegue visualzar no arquivo apiSuperHero (src / services / apiSuperHero.js).
 
