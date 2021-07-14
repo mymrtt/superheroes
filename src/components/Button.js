@@ -17,11 +17,11 @@ const Default = styled.button`
   font-size: .95rem;
   border-radius: 10px;
   border: none;
-  background: ${(props) => props.background};
+  background: ${({ background }) => background};
   cursor: pointer;
 
   @media(max-width: 768px) {
-    width: ${(props) => props.tabletWith};
+    width: ${({ tabletWith }) => tabletWith};
   }
 
   @media(max-width: 648px) {
@@ -31,22 +31,31 @@ const Default = styled.button`
 `;
 
 const Text = styled.p`
-  color: ${(props) => props.color};
   margin-right: .5rem;
+  color: ${({ color }) => color};
 `;
 
-const Button = ({ background, onClick, color, text, isFetching, tabletWith, testid, type }) => (
+const Button = ({ 
+  background,
+  onClick,
+  color,
+  text,
+  isFetching,
+  tabletWith,
+  testid,
+  type
+  }) => (
   <Default
     background={background}
     tabletWith={tabletWith}
-    onClick={onClick}
     type={type}
+    onClick={onClick}
     data-testid={testid}
   >
     <Text color={color}>
       {text}
     </Text>
-    {isFetching ? <img src={loaderWhite} alt="loading..." /> : null}
+    {isFetching && <img src={loaderWhite} alt="loading..." />}
   </Default>
 );
 

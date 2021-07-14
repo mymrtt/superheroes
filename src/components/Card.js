@@ -153,25 +153,25 @@ const ContainerDescription = styled.div`
 
 const DescriptionItem = styled.div`
   padding: 0 0.8rem 1.5rem;
-  width: ${(props) => props.aliases ? '92%' : '30%'};
+  width: ${({ aliases }) => aliases ? '92%' : '30%'};
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   @media(max-width: 648px) {
     padding: 0 0.5rem 1.5rem;
-    width: ${(props) => props.aliases ? '95%' : '32%'};
+    width: ${({ aliases }) => aliases ? '95%' : '32%'};
   }
 `;
 
 const DescriptionText = styled.p`
-  margin-bottom: ${(props) => props.title && '.2rem'};
-  color: ${(props) => props.title ? '#842219' : '#000'};
-  font-size: ${(props) => props.title ? '1.2rem' : '.9rem'};
-  font-weight: ${(props) => props.title ? '600' : '500'};
+  margin-bottom: ${({ title }) => title && '.2rem'};
+  color: ${({ title }) => title ? '#842219' : '#000'};
+  font-size: ${({ title }) => title ? '1.2rem' : '.9rem'};
+  font-weight: ${({ title }) => title ? '600' : '500'};
 
   @media(max-width: 648px) {
-    font-size: ${(props) => props.title ? '1rem' : '.80rem'};
+    font-size: ${({ title }) => title ? '1rem' : '.80rem'};
   }
 `;
 
@@ -201,13 +201,11 @@ function Card({ hero }){
     setHandleAppearance(!handleAppearance);
   }
 
-  // Retornar '-' caso haja uma string null como resposta
-  const CheckDifferentNull = (value) => {
+  const validateValue = value => {
     return (value !== 'null' && value) || '-';
   }
 
   const renderPowerstats = () => {
-    // Saber se o dado veio através da pesquisa
     const item = hero.powerstats || hero.data.powerstats;
 
     return (
@@ -223,27 +221,27 @@ function Card({ hero }){
           <ContainerDescription>
             <DescriptionItem>
               <DescriptionText title>Intelligence</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.intelligence)}</DescriptionText>
+              <DescriptionText>{validateValue(item.intelligence)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Strength</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.strength)}</DescriptionText>
+              <DescriptionText>{validateValue(item.strength)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Speed</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.speed)}</DescriptionText>
+              <DescriptionText>{validateValue(item.speed)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Durability</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.durability)}</DescriptionText>
+              <DescriptionText>{validateValue(item.durability)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Power</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.power)}</DescriptionText>
+              <DescriptionText>{validateValue(item.power)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Combat</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.combat)}</DescriptionText>
+              <DescriptionText>{validateValue(item.combat)}</DescriptionText>
             </DescriptionItem>
           </ContainerDescription>
         </ContainerDetails>
@@ -252,7 +250,6 @@ function Card({ hero }){
   }
 
   const renderBiography = () => {
-    // Saber se o dado veio através da pesquisa
     const item = hero.biography || hero.data.biography;
 
     return (
@@ -268,27 +265,27 @@ function Card({ hero }){
           <ContainerDescription>
             <DescriptionItem>
               <DescriptionText title>Full Name</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['full-name'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['full-name'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Alter-Egos</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['alter-egos'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['alter-egos'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Place of Birth</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['place-of-birth'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['place-of-birth'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>First Appearance</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['first-appearance'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['first-appearance'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Publisher</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['publisher'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['publisher'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Alignment</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.alignment)}</DescriptionText>
+              <DescriptionText>{validateValue(item.alignment)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem aliases>
               <DescriptionText title>Aliases</DescriptionText>
@@ -306,7 +303,6 @@ function Card({ hero }){
   }
 
   const renderAppearance = () => {
-    // Saber se o dado veio através da pesquisa
     const item = hero.appearance || hero.data.appearance;
 
     return (
@@ -322,27 +318,27 @@ function Card({ hero }){
           <ContainerDescription>
             <DescriptionItem>
               <DescriptionText title>Gender</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.gender)}</DescriptionText>
+              <DescriptionText>{validateValue(item.gender)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Race</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.race)}</DescriptionText>
+              <DescriptionText>{validateValue(item.race)}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Height</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.height[0])}, {CheckDifferentNull(item.height[1])}</DescriptionText>
+              <DescriptionText>{validateValue(item.height[0])}, {validateValue(item.height[1])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Weight</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item.weight[0])}, {CheckDifferentNull(item.weight[1])}</DescriptionText>
+              <DescriptionText>{validateValue(item.weight[0])}, {validateValue(item.weight[1])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Eye Color</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['eye-color'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['eye-color'])}</DescriptionText>
             </DescriptionItem>
             <DescriptionItem>
               <DescriptionText title>Hair Color</DescriptionText>
-              <DescriptionText>{CheckDifferentNull(item['hair-color'])}</DescriptionText>
+              <DescriptionText>{validateValue(item['hair-color'])}</DescriptionText>
             </DescriptionItem>
           </ContainerDescription>
         </ContainerDetails>
@@ -360,8 +356,7 @@ function Card({ hero }){
     dispatch({ type: 'superHeros/FAV/FAV_HERO', info: hero });
   }
 
-  // Saber se o hero veio através da pesquisa e retornar a imagem correta
-  const heroImage = hero.image && hero.image.url !== undefined ? hero.image.url : hero.data.image.url;
+  const heroImage = hero.image?.url || hero.data?.image.url;
 
   // Saber se o hero está na lista do Redux
   const heroIncludes = mapStateListFavorites.includes(hero);
@@ -383,7 +378,7 @@ function Card({ hero }){
       )}
       <HeroName>{hero.name || hero.data.name || 'without name'}</HeroName>
       <HeroFigureImage>
-      {hero.image && hero.image.url === undefined ? (
+      {(hero.image?.url || hero.data?.image?.url) === undefined ? (
         <ContainerUndefinedImg />
       ): (
         <HeroImage

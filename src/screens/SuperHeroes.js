@@ -35,7 +35,7 @@ const Container = styled.div`
   display: flex;
 
   @media(max-width: 768px) {
-    position: ${(props) => props.favsMob && 'relative'};
+    position: ${({ favsMob }) => favsMob && 'relative'};
   }
 
   @media(max-width: 648px) {
@@ -51,15 +51,15 @@ const Wrapper = styled.div`
   justify-content: space-between;
 
   @media(max-width: 768px) {
-    padding-top: ${(props) => props.favsMob && '5rem'};
+    padding-top: ${({ favsMob }) => favsMob && '5rem'};
     display: flex;
     flex-direction: column;
   }
 `;
 
 const ContainerTitle = styled.div`
-  margin-top: ${(props) => props.favs && '3rem'};
-  margin: ${(props) => props.favs ? '3rem 2rem' : '2rem'};
+  margin-top: ${({ favs }) => favs && '3rem'};
+  margin: ${({ favs }) => favs ? '3rem 2rem' : '2rem'};
   width: 30%;
   max-width: 30%;
   height: fit-content;
@@ -186,11 +186,11 @@ const ErrorMessage = styled.p`
 
 const ShowButton = styled.button`
   position: fixed;
-  right: ${(props) => props.searchAndFavs ? 'auto' : '0'};
+  right: ${({ searchAndFavs }) => searchAndFavs ? 'auto' : '0'};
   top: 0;
   margin-top: 1rem;
   margin-right: 1rem;
-  margin-left: ${(props) => props.searchAndFavs && '1rem'};
+  margin-left: ${({ searchAndFavs }) => searchAndFavs && '1rem'};
   width: 8rem;
   height: 3rem;
   font-size: .8rem;
@@ -211,7 +211,7 @@ const ShowButton = styled.button`
 
   @media(max-width: 648px) {
     position: absolute;
-    left: ${(props) => props.searchAndFavs ? '0' : 'auto'};
+    left: ${({ searchAndFavs }) => searchAndFavs ? '0' : 'auto'};
     margin: 1rem .5rem 1rem .5rem;
     height: 3rem;
     color: ${({ theme }) => theme.text};
@@ -246,7 +246,7 @@ class SuperHeroes extends Component {
       while(i <= 6) {
         const response = await getAllHeroes(Math.floor(Math.random() * 731 + 1));
 
-        console.log('response', response)
+        // console.log('response', response)
 
         if (response) {
           heroes.push(response);
@@ -352,6 +352,7 @@ class SuperHeroes extends Component {
       list.map(item => (
         <ContainerCard onClick={() => this.handleSelectedHero(item)}>
           <Card
+            key={item.data?.id || item.id}
             hero={item}
           />
         </ContainerCard>
@@ -361,12 +362,12 @@ class SuperHeroes extends Component {
 
   render() {
     const { searchValue, searchValueError, isFavoritesList, isFetching } = this.state;
-    const { listFavorites, } = this.props;
+    const { listFavorites } = this.props;
 
     return (
       <Layout>
-        <Container favsMob={listFavorites.length > 0}>
-          <Wrapper favsMob={listFavorites.length > 0}>
+        <Container favsMob={!!listFavorites.length}>
+          <Wrapper favsMob={!!listFavorites.length}>
             {listFavorites.length > 0 && (
               <ShowButton
                 favsMob={isFavoritesList && listFavorites.length > 0}
@@ -375,7 +376,7 @@ class SuperHeroes extends Component {
                 {!isFavoritesList ? 'Show Favorites' : 'Show All'}
               </ShowButton>
             )}
-            <ContainerTitle favs={listFavorites.length > 0}>
+            <ContainerTitle favs={!!listFavorites.length}>
               <Title>Super Heroes</Title>
               <ContainerSearch>
                 <Input 
