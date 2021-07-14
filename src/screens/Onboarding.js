@@ -152,9 +152,9 @@ const Onboarding = () => {
 
       if (code === 101) {
         setErrorText('Invalid username/password.');
-      } 
-
-      setErrorText('Unknown error.');
+      } else {
+        setErrorText('Unknown error.');
+      }
     }
   }
 
